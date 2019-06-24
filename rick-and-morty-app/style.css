@@ -1,0 +1,86 @@
+#gifs-container {
+    display: flex;
+    background-color: #e9ece5;
+    width: 80%;
+    margin: auto;
+    overflow:scroll;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* height: 400px; */
+    padding: 1%;
+}
+.transitionSetup {
+    display: inherit;
+    height: inherit;
+    width: inherit;
+}
+.divImage {
+    height: 143px;
+    width: 243px;
+    display: block;
+    object-fit: cover;
+    background: none;
+    padding: none;
+    margin: none;
+    position: relative;
+    opacity: 0.5;
+	transition: all .4s ease-in-out;
+}
+.transition {
+    transform: scale(1.6);
+}
+/* .divImage:hover {
+    opacity: none;
+} */
+.character {
+    width: 400px;
+    height: 200px;
+}
+/* .card bg-dark text-white {
+    width: 100px;
+    height: 200px;
+} */
+li {
+    flex-direction: row;
+    /* height: 100px;
+    width: 80px; */
+}
+#mainBox {
+    /* width: 75%;
+    height: 75%; */
+    overflow:scroll;
+    display: inherit;
+    flex-wrap: wrap;
+}
+.fighter-list__item {
+    width: 243px;
+    height: 143px;
+    transition: all .4s ease-in-out;
+    list-style: none;
+}
+.listDiv {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    background-color: black;
+    /* opacity: 0.5; */
+}
+.divImage:hover, .fighter-list__item:hover{
+    opacity: 1;
+    transform: scale(1.2);
+}
+p {
+    float: left;
+}
+
+.centered {
+    /* position: inherit; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* position: absolute; */
+}
+/* .l: hover {
+    background-color: yellow;
+} */
+
