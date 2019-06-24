@@ -24,7 +24,7 @@ body {
     height: 143px;
     width: 243px;
     display: block;
-    object-fit: cover;
+    /* object-fit: cover; */
     background: none;
     padding: none;
     margin: none;
