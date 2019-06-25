@@ -2,19 +2,26 @@ body {
     background: #B2FEFA;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    opacity: 0.9;
+    /* opacity: 0.98; */
     margin: 0px;
 }
 #bigPicture {
     /* margin-left: -40px; */
-    height: 450px;
+    /* height: 80%; */
     width: 100%;
     background-color: brown;
-    position: absolute;
+    position: fixed;
     z-index: 1;
-    background-image: url('https://wallpapercave.com/wp/wp1822727.jpg');
-    opacity: 0.95;
+    /* background-image: url('https://wallpapercave.com/wp/wp1822727.jpg'); */
+    /* background-image: url("https://hdqwalls.com/download/rick-and-morty-5k-yc-2048x1152.jpg"); */
+    opacity: 0.88;
+
     
+}
+#pic1{
+    width: 100%;
+    position: relative;
+    float: left;
 }
 h1 {
     position: relative;
@@ -58,7 +65,7 @@ form {
     padding: none;
     margin: none;
     position: relative;
-    opacity: 0.87;
+    opacity: 0.98;
 	transition: all .4s ease-in-out;
 }
 .transition {
@@ -101,7 +108,13 @@ li {
     background-color: black;
     /* opacity: 0.5; */
 }
-.divImage:hover, .fighter-list__item:hover{
+.divImage:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    z-index: 1000;
+    border: 1.5px solid gold;
+}
+.fighter-list__item:hover{
     opacity: 1;
     transform: scale(1.2);
     z-index: 1000;
@@ -130,7 +143,7 @@ p {
 .nav {
     height: 63px;
     background-color: whitesmoke;
-    opacity: 0.35;
+    opacity: 0.9;
     font-weight: 500;
     position: sticky;
     top: 0;

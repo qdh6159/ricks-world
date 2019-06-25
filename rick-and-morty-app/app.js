@@ -41,6 +41,7 @@ console.log("It works")
 
 // })
 
+// function below is what makes the character images bigger on hover
 $(document).ready(function(){
     $('.fighter-list__item').hover(function() {
         $(".fighter-list__item").addClass('transition');
