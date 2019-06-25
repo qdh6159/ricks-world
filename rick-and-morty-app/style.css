@@ -21,8 +21,14 @@ h1 {
     z-index: 1000;
 }
 form {
-    position: relative;
-    z-index: 1000;
+    position: absolute;
+    z-index: 30000;
+    display: inline-block;
+    margin-bottom: 2px;
+    margin-top: 18px;
+}
+#searchBar, #clicker {
+    display: inline-block;
 }
 .page-container {
     text-align: center;
@@ -122,5 +128,37 @@ p {
 }
 
 .nav {
-    height: 70px;
+    height: 63px;
+    background-color: whitesmoke;
+    opacity: 0.35;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    height: 72px;
+    z-index: 1000;
+    font-size: 14px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+.navItem1, .navItem2, .navItem3, .navItem4 {
+    /* padding: 5px; */
+    border: 1px solid blueviolet;
+    display: inline-block;
+    width: 90px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: 5px;
+    
+    
+    /* position: relative; */
+}
+.navItem5 {
+    border: 1px solid blueviolet;
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: 5px;
+    position: absolute;
 }
