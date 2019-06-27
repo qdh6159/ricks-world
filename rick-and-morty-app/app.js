@@ -1,7 +1,7 @@
 console.log("It works")
-
+let start = 0
 function loopCharacters(characterArray) {
-    for(let i = 0; i < characterArray.length; i++) {
+    for(let i = `${start}`; i < characterArray.length; i++) {
         let characterId = characterArray[i].id
         let characterName = characterArray[i].name
         let characterStatus = characterArray[i].status
@@ -15,7 +15,7 @@ function loopCharacters(characterArray) {
         // console.log(characterId)
         let name = characterArray[i].name
 
-        // variables for character detail window below
+        // variables for each character detail window below
         let image = `<img class="divImage" src="${characterArray[i].image}"></img>`
         let spanName = `<span>Name: ${characterName}</span>`
         let spanId = `<span>Character id: ${characterId}</span>`
@@ -26,7 +26,7 @@ function loopCharacters(characterArray) {
         let spanLocation = `<span>Location: ${characterLocation}</span>`
         let spanOrigin = `<span>Origin: ${characterOrigin}</span>`
 
-        const divWindow = `<div class="detailDiv">${spanId}<br>${spanName}<br>${spanStatus}<br>${spanSpecies}<br>${spanType}<br>${spanGender}<br>${spanLocation}<br>${spanOrigin}</div>`
+        const divWindow = `<div class="detailDiv">${spanName}<br><br>${spanId}<br>${spanStatus}<br>${spanSpecies}<br>${spanType}<br>${spanGender}<br>${spanLocation}<br>${spanOrigin}</div>`
 
         let pElementName = $('#mainBox').append(`<li class="fighter-list__item"><div class="transitionSetup"><div class="listDiv">${image}${divWindow}</div></div></div></li>`);
         pElementName;
@@ -36,7 +36,46 @@ function loopCharacters(characterArray) {
     };
 };
 
-let characterArray = [];
+let characterArray = []; 
+
+
+let fetchCharacters = {
+    url:"https://rickandmortyapi.com/api/character/?page=1",
+    success: (data)=>{
+        console.log(data);
+        // characterArray = data.results
+        for(let i = 0; i < data.results.length; i++){
+            console.log(data.results[i])
+            characterArray.push(data.results[i])
+            console.log(`Pushed ${data.results[i].name} to the character array`)
+        }
+        loopCharacters(characterArray)
+        
+
+
+
+
+        $(".divImage").on({
+            mouseenter: function () {
+                $(".detailDiv").addClass('changeDetailDiv');
+                $(this).next().fadeIn()
+            },
+            mouseleave: function () {
+                $(".detailDiv").removeClass('changeDetailDiv');
+                $(this).next().fadeOut()
+            }
+        });
+    },
+    error: ()=>{
+        console.log('bad request');
+    }
+}
+$.ajax(fetchCharacters)
+
+
+
+
+// let characterArray = [];
 
 // // THE INITIAL CLICK
 // $('#clicker').on( 'click', ( e ) => {
@@ -77,26 +116,5 @@ let characterArray = [];
 //     $.ajax(gifApi)
 //   });
 
-  let gifApi = {
-    url:"https://rickandmortyapi.com/api/character/?page=1",
-    success: (data)=>{
-        console.log(data);
-        characterArray = data.results
-        loopCharacters(characterArray)
-        $(".divImage").on({
-            mouseenter: function () {
-                $(".detailDiv").addClass('changeDetailDiv');
-                $(this).next().fadeIn()
-            },
-            mouseleave: function () {
-                $(".detailDiv").removeClass('changeDetailDiv');
-                $(this).next().fadeOut()
-            }
-        });
-    },
-    error: ()=>{
-        console.log('bad request');
-    }
-}
-$.ajax(gifApi)
+
   
