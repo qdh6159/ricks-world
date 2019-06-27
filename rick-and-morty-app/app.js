@@ -14,8 +14,21 @@ function loopCharacters(characterArray) {
         // console.log(characterStatus)
         // console.log(characterId)
         let name = characterArray[i].name
-        let  image = `<img class="divImage" src="${characterArray[i].image}"></img>`
-        let pElementName = $('#mainBox').append(`<li class="fighter-list__item"><div class="transitionSetup">${name}<div class="listDiv">${image}<div class="detailDiv">name: <h5>${characterName}</h5></div></div></div></li>`);
+
+        // variables for character detail window below
+        let image = `<img class="divImage" src="${characterArray[i].image}"></img>`
+        let spanName = `<span>Name: ${characterName}</span>`
+        let spanId = `<span>Character id: ${characterId}</span>`
+        let spanStatus = `<span>Status: ${characterStatus}</span>`
+        let spanSpecies = `<span>Species: ${characterSpecies}</span>`
+        let spanType = `<span>Type: ${characterType}</span>`
+        let spanGender = `<span>Gender: ${characterGender}</span>`
+        let spanLocation = `<span>Location: ${characterLocation}</span>`
+        let spanOrigin = `<span>Origin: ${characterOrigin}</span>`
+
+        const divWindow = `<div class="detailDiv">${spanId}<br>${spanName}<br>${spanStatus}<br>${spanSpecies}<br>${spanType}<br>${spanGender}<br>${spanLocation}<br>${spanOrigin}</div>`
+
+        let pElementName = $('#mainBox').append(`<li class="fighter-list__item"><div class="transitionSetup"><div class="listDiv">${image}${divWindow}</div></div></div></li>`);
         pElementName;
         // const detailWindow = $('.detailDiv')
         // detailWindow.append(`<h4>${characterName}</h4>`)
