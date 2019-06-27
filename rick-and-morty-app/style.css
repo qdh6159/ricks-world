@@ -124,8 +124,8 @@ li {
 
     position: relative;
     z-index: 10000;
-    transition: all .4s ease-in-out;
-    margin-top: 13px;
+    transition: all .9s ease-in-out;
+    margin-top: 27px;
 }
 /* .detailDiv:hover {
     transform: scale(1.2);
