@@ -2,6 +2,17 @@ console.log("It works")
 
 function loopCharacters(characterArray) {
     for(let i = 0; i < characterArray.length; i++) {
+        let characterId = characterArray[i].id
+        let characterName = characterArray[i].name
+        let characterStatus = characterArray[i].status
+        let characterSpecies = characterArray[i].species
+        let characterType = characterArray[i].type
+        let characterGender = characterArray[i].gender
+        let characterLocation = characterArray[i].location.name
+        let characterOrigin = characterArray[i].origin.name
+        console.log(characterId, characterName, characterSpecies, characterType, characterGender, characterLocation, characterOrigin)
+        console.log(characterStatus)
+        // console.log(characterId)
         let name = characterArray[i].name
         let  image = `<img class="divImage" src="${characterArray[i].image}"></img>`
         let pElementName = $('#mainBox').append(`<li class="fighter-list__item"><div class="transitionSetup">${name}<div class="listDiv">${image}<div class="detailDiv"></div></div></div></li>`);
@@ -54,6 +65,7 @@ let characterArray = [];
   let gifApi = {
     url:"https://rickandmortyapi.com/api/character/?page=1",
     success: (data)=>{
+        console.log(data);
         characterArray = data.results
         loopCharacters(characterArray)
         $(".divImage").on({
