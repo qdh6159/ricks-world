@@ -112,6 +112,7 @@ li {
 }
 .changeDetailDiv {
     transform: scale(1.2);
+    display: block;
 }
 .detailDiv {
     border: 2px solid gold;
@@ -121,11 +122,14 @@ li {
     height: 143px;
     opacity: 0.7;
     background-color: aqua;
-
     position: relative;
     z-index: 10000;
-    transition: all .9s ease-in-out;
+    transition: all .4s ease-in-out;
     margin-top: 27px;
+    text-align: left;
+}
+h5 {
+    display: inline-block;
 }
 /* .detailDiv:hover {
     transform: scale(1.2);
