@@ -99,20 +99,20 @@ $('#clicker').on( 'click', ( e ) => {
             // $('#gifs-container').append(`<img src="${image}"></img>`)
             characterArray = data.results
             loopCharacters(characterArray)
-            // $(".listDiv").on({
-            //     mouseenter: function () {
-            //         //stuff to do on mouse enter
-            //         console.log("Mouse is over nav")
-            //         $(".detailDiv").fadeIn();
-            //         console.log("*")
-            //     },
-            //     mouseleave: function () {
-            //         //stuff to do on mouse leave
-            //         console.log("Mouse is out of nav")
-            //         $(".detailDiv").fadeOut();
-            //         console.log("x")
-            //     }
-            // });
+            $(".listDiv").on({
+                mouseenter: function () {
+                    //stuff to do on mouse enter
+                    console.log("Mouse is over nav")
+                    $(".detailDiv").addClass('changeDetailDiv');
+                    console.log("*")
+                },
+                mouseleave: function () {
+                    //stuff to do on mouse leave
+                    console.log("Mouse is out of nav")
+                    $(".detailDiv").removeClass('changeDetailDiv');
+                    console.log("x")
+                }
+            });
         },
         error: ()=>{
             console.log('bad request');
