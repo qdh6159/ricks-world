@@ -42,14 +42,27 @@ console.log("It works")
 // })
 
 // function below is what makes the character images bigger on hover
-$(document).ready(function(){
-    $('.fighter-list__item').hover(function() {
-        $(".fighter-list__item").addClass('transition');
+// $(document).ready(function(){
+//     $('.divImage').hover(function() {
+//         console.log(" hovering over divImage")
+//         // $(".detailDiv").addClass('.transition');
+//         // $('.detailDiv').addClass('transition');
     
-    }, function() {
-        $(".fighter-list__item").removeClass('transition');
-    });
-});
+//     }, function() {
+//         console.log(" hovering over divImage")
+//         // $('.detailDiv').removeClass('.transition');
+//     });
+    
+// });
+
+// $( ".nav" ).on( "hover", function() {
+//     console.log("Clicker test working");
+//   });
+
+// $('.nav').on('hover', function(){
+//     console.log("HOvering over divImage")
+// })
+
 
 
 function loopCharacters(characterArray) {
@@ -57,8 +70,10 @@ function loopCharacters(characterArray) {
         console.log(characterArray[i].name)
         let name = characterArray[i].name
         let  image = `<img class="divImage" src="${characterArray[i].image}"></img>`
-        let pElementName = $('#mainBox').append(`<li class="fighter-list__item"><div class="transitionSetup">${name}<div class="listDiv">${image}</div><div></li>`);
+        let pElementName = $('#mainBox').append(`<li class="fighter-list__item"><div class="transitionSetup">${name}<div class="listDiv">${image}<div class="detailDiv"></div></div></div></li>`);
         pElementName;
+        // $('.detailDiv').hide()
+        // $('.listDiv').append(<div></div>)
 
         
     };
@@ -84,7 +99,20 @@ $('#clicker').on( 'click', ( e ) => {
             // $('#gifs-container').append(`<img src="${image}"></img>`)
             characterArray = data.results
             loopCharacters(characterArray)
-            
+            // $(".listDiv").on({
+            //     mouseenter: function () {
+            //         //stuff to do on mouse enter
+            //         console.log("Mouse is over nav")
+            //         $(".detailDiv").fadeIn();
+            //         console.log("*")
+            //     },
+            //     mouseleave: function () {
+            //         //stuff to do on mouse leave
+            //         console.log("Mouse is out of nav")
+            //         $(".detailDiv").fadeOut();
+            //         console.log("x")
+            //     }
+            // });
         },
         error: ()=>{
             console.log('bad request');

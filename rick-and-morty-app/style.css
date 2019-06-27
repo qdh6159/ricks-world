@@ -4,6 +4,8 @@ body {
     background: linear-gradient(to right, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* opacity: 0.98; */
     margin: 0px;
+    position: relative;
+    z-index: 10500;
 }
 #bigPicture {
     /* margin-left: -40px; */
@@ -97,7 +99,7 @@ li {
 .fighter-list__item {
     width: 243px;
     height: 143px;
-    transition: all .4s ease-in-out;
+    /* transition: all .4s ease-in-out; */
     list-style: none;
     z-index: 1;
 }
@@ -108,6 +110,26 @@ li {
     background-color: black;
     /* opacity: 0.5; */
 }
+.changeDetailDiv {
+    transform: scale(1.2);
+}
+.detailDiv {
+    border: 2px solid gold;
+    /* height: 171.6px;
+    width: 291.6px; */
+    width: 243px;
+    height: 143px;
+    opacity: 0.7;
+    background-color: aqua;
+
+    position: relative;
+    z-index: 10000;
+    transition: all .4s ease-in-out;
+    margin-top: 13px;
+}
+/* .detailDiv:hover {
+    transform: scale(1.2);
+} */
 .divImage:hover {
     opacity: 1;
     transform: scale(1.2);
@@ -116,7 +138,7 @@ li {
 }
 .fighter-list__item:hover{
     opacity: 1;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
     z-index: 1000;
 }
 p {
@@ -135,7 +157,7 @@ p {
 } */
 
 
-
+/* All nav rules below */
 .nav, .navButtons {
     border: 1px solid black;
 }
