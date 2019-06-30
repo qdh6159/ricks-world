@@ -57,10 +57,12 @@ form {
     display: inherit;
     height: inherit;
     width: inherit;
+    width: 182.25px;
+    height: 107.25px;
 }
 .divImage {
-    height: 143px;
-    width: 243px;
+    width: 182.25px;
+    height: 107.25px;
     display: block;
     /* object-fit: cover; */
     background: none;
@@ -69,6 +71,27 @@ form {
     position: relative;
     opacity: 0.98;
 	transition: all .4s ease-in-out;
+}
+.fa-heart {
+    position: absolute;
+    top: 90px;
+    right: 8px;
+    z-index: 60000;
+    transition: all .4s ease-in-out;
+}
+.far {
+    color: white;
+}
+.fas{
+    color: red;
+}
+.changeOfHeart {
+    transform: scale(1.2);
+    top: 93px;
+    right: 2px;
+}
+.far:hover {
+    transform: scale(2);
 }
 .transition {
     transform: scale(1.6);
@@ -97,15 +120,15 @@ li {
     flex-wrap: wrap;
 }
 .fighter-list__item {
-    width: 243px;
-    height: 143px;
+    width: 182.25px;
+    height: 107.25px;
     /* transition: all .4s ease-in-out; */
     list-style: none;
     z-index: 1;
 }
 .listDiv {
-    width: inherit;
-    height: inherit;
+    width: 182.25px;
+    height: 107.25px;
     position: absolute;
     background-color: black;
     /* opacity: 0.5; */
@@ -125,9 +148,17 @@ li {
     position: relative;
     z-index: 10000;
     transition: all .4s ease-in-out;
-    margin-top: 27px;
+    /* margin-top: 27px; */
     text-align: left;
+    margin-right: 20px;
+    margin-top: 28px;
+    /* display: none; */
+    margin-left: 6.3px;
 }
+#hide {
+    display: none;
+}
+
 h5 {
     display: inline-block;
 }
