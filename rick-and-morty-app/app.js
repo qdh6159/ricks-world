@@ -224,6 +224,9 @@ $("#favoriteButton").on("click", function(e){
     light = "red"
     $("#mainBox").empty()
     setupFavorites()
+    $('html, body').animate({
+        scrollTop: $("ul").offset().top
+    }, 1200);
 })
 
 $('#clicker').on("click", function(e){
@@ -232,6 +235,9 @@ $('#clicker').on("click", function(e){
     $("#mainBox").empty()
     light = "green"
     setup(rickapediaDefault)
+    $('html, body').animate({
+        scrollTop: $("ul").offset().top
+    }, 1200);
 })
 
 $('#theRicks').on("click", function(e){
@@ -241,6 +247,9 @@ $('#theRicks').on("click", function(e){
     light = "red"
     console.log('click rick')
     setup(allRicks)
+    $('html, body').animate({
+        scrollTop: $("ul").offset().top
+    }, 1200);
 })
 
 $('#theMortys').on("click", function(e){
@@ -249,6 +258,9 @@ $('#theMortys').on("click", function(e){
     $("#mainBox").empty()
     light = "red"
     console.log('click morty')
+    $('html, body').animate({
+        scrollTop: $("ul").offset().top
+    }, 1200);
     setup(allMortys)
 })
 
@@ -262,6 +274,9 @@ $('#nameButton').on("click", function(e){
     light = "red"
     console.log('searching names')
     setup(nameURL)
+    $('html, body').animate({
+        scrollTop: $("ul").offset().top
+    }, 1200);
 })
 
 
