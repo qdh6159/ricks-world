@@ -16,7 +16,7 @@
         <div class="container1">
             <div class="container2">
                 <div class="navItem1">
-
+                    
                 </div>
                 <div class="navItem2">
 
@@ -30,8 +30,11 @@
                 <div class="navItem5">
                     <form action="">
                         <input type="text" id="searchBar">
-                        <input type="submit" value="Submit/Search" id="clicker">
+                        <button id="nameButton">Search name</button> 
+                        <input type="submit" value="All Characters" id="clicker">
                         <button id="favoriteButton">Favorites</button> 
+                        <button id="theRicks">View all Ricks</button>
+                        <button id="theMortys">View all Mortys</button>
                     </form>
 
                 </div>
@@ -43,11 +46,40 @@
     </header>
     <div class="page-container">
         <div id="bigPicture">
-            <img src="https://hdqwalls.com/download/rick-and-morty-5k-yc-2048x1152.jpg" alt="Rick and morty art" id="pic1">
+            <!-- <img src="https://hdqwalls.com/download/rick-and-morty-5k-yc-2048x1152.jpg" alt="Rick and morty art" id="pic1"> -->
+        </div>
 
+        <div id="enterWeb">
+            <div class="card" style="display: inline-block;width:202px;">
+                <img class="card-img-top" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                  <a href="#" class="btn btn-primary stretched-link">See Profile</a>
+                </div>
+              </div>
+              <div class="card" style="display: inline-block;width:202px;">
+                <img class="card-img-top" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                  <a href="#" class="btn btn-primary stretched-link">See Profile</a>
+                </div>
+              </div>
+              <div class="card" style="display: inline-block;width:202px;">
+                <img class="card-img-top" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                  <a href="#" class="btn btn-primary stretched-link">See Profile</a>
+                </div>
+              </div>
+
+            </div>
+
+        
         </div>
         
-    
         <div id="gifs-container">
             
             <ul id="mainBox">
@@ -60,4 +92,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="app.js"></script>
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </html>

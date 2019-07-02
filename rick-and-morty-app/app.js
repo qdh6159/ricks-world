@@ -1,4 +1,31 @@
+$(document).ready(function() {
+    $("#myCarousel").on("slide.bs.carousel", function(e) {
+      var $e = $(e.relatedTarget);
+      var idx = $e.index();
+      var itemsPerSlide = 3;
+      var totalItems = $(".carousel-item").length;
+  
+      if (idx >= totalItems - (itemsPerSlide - 1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i = 0; i < it; i++) {
+          // append slides to end
+          if (e.direction == "left") {
+            $(".carousel-item")
+              .eq(i)
+              .appendTo(".carousel-inner");
+          } else {
+            $(".carousel-item")
+              .eq(0)
+              .appendTo($(this).find(".carousel-inner"));
+          }
+        }
+      }
+    });
+  });
+
+
 console.log("Wubba lubba dub-dub!")
+
 
 
 let ricksArray = []; 
@@ -10,7 +37,10 @@ let interdimensionalTrafficLight = 'green'
 let urlC137 
 let rickapedia = "https://rickandmortyapi.com/api/character/?page=1"
 let rickapediaDefault = "https://rickandmortyapi.com/api/character/?page=1"
-let firstVisit = 1
+let allRicks = "https://rickandmortyapi.com/api/character/?name=rick"
+let allMortys = "https://rickandmortyapi.com/api/character/?name=morty"
+
+let firstVisit = 3
 
 async function portalGun(url) {
     let response = await fetch(url)
@@ -147,7 +177,7 @@ function setup(url) {
     
             
             $('.detailDiv').hide()
-            if(firstVisit == 1 || firstVisit == 2) {
+            if(firstVisit == 1 || firstVisit == 2 || firstVisit == 3 || firstVisit == 4) {
                 firstVisit ++
                 setup(rickapedia)
             }
@@ -184,6 +214,10 @@ $(window).scroll(function(){
         }
 });
 
+
+
+// All the buttons------------------------------------------------------------------------------------------------
+
 $("#favoriteButton").on("click", function(e){
     e.preventDefault()
     firstVisit = 1
@@ -194,10 +228,42 @@ $("#favoriteButton").on("click", function(e){
 
 $('#clicker').on("click", function(e){
     e.preventDefault()
+    firstVisit = 3
     $("#mainBox").empty()
     light = "green"
     setup(rickapediaDefault)
 })
+
+$('#theRicks').on("click", function(e){
+    e.preventDefault()
+    firstVisit = 2
+    $("#mainBox").empty()
+    light = "red"
+    console.log('click rick')
+    setup(allRicks)
+})
+
+$('#theMortys').on("click", function(e){
+    e.preventDefault()
+    firstVisit = 3
+    $("#mainBox").empty()
+    light = "red"
+    console.log('click morty')
+    setup(allMortys)
+})
+
+$('#nameButton').on("click", function(e){
+    e.preventDefault()
+    let nameSearch = $('#searchBar').val()
+    console.log(nameSearch)
+    let nameURL = `https://rickandmortyapi.com/api/character/?name=${nameSearch}`
+    firstVisit = 3
+    $("#mainBox").empty()
+    light = "red"
+    console.log('searching names')
+    setup(nameURL)
+})
+
 
 
 function loopCharacters(characterArray) {
