@@ -41,6 +41,8 @@ let allRicks = "https://rickandmortyapi.com/api/character/?name=rick"
 let allMortys = "https://rickandmortyapi.com/api/character/?name=morty"
 
 let firstVisit = 3
+let favName = ""
+let favNum = null
 
 async function portalGun(url) {
     let response = await fetch(url)
@@ -131,62 +133,6 @@ async function setup(url) {
             ricksArray = data.results
             rickapedia = data.info.next
             loopCharacters(ricksArray)
-
-            // $(".divImage").on({
-            //     mouseenter: function () {
-            //         $(".detailDiv").addClass('changeDetailDiv');
-            //         $(this).next().fadeIn()
-            //         // $('.detailDiv').fadeIn()
-                    
-            //     },
-            //     mouseleave: function () {
-            //         $(".detailDiv").removeClass('changeDetailDiv')
-            //         $(this).next().fadeOut()
-            //         // $('.detailDiv').fadeOut()
-                    
-            //     }
-            // });
-    
-            // $(".listDiv").on({
-            //     mouseenter: function () {
-            //         $(this).find("i").addClass('changeOfHeart');
-                    
-            //     },
-            //     mouseleave: function () {
-            //         $(this).find("i").removeClass('changeOfHeart')
-                
-                    
-            //     }
-            // });
-    
-            
-            // $(".listDiv").closest("i").on("click", function(){
-            //     console.log("heart clicked ")
-            //     $(event.target).toggleClass("fas")
-            // })
-    
-            // $(".divImage").on("click", function(){
-            //     console.log("image clicked")
-            //     let favNum = $(this).next().children("#favCharacterId").text()
-                
-            //     let favName = $(this).next().children("#favCharacterId").text()
-            //     console.log(favName)
-            //     console.log(favNum)
-            //     squanchysFavoriteSquanch.push(favNum)
-            //     $('header').append('<div class="alert alert-primary fade show" role="alert">This is a primary alert—check it out!</div>')
-            //     setTimeout(function(){
-            //         $(".alert").alert('close')
-            //       }, 2000);
-               
-
-                
-            //     // let favCharacterNum = $(this).text()
-            //     // console.log(favCharacterNum)
-            //     // let favCharacter = $(event.target).attr("alt")
-            //     // alert("added this character to your favorites")
-            //     // squanchysFavoriteSquanch.push(favCharacter)
-    
-            // })
     
             
             $('.detailDiv').hide()
@@ -229,16 +175,43 @@ async function setup(url) {
         
                 $("body").on("click", ".divImage", function(){
                     console.log("image clicked")
-                    let favNum = $(this).next().children("#favCharacterId").text()
+                    favNum = $(this).next().children("#favCharacterId").text()
                     
-                    let favName = $(this).next().children("#grabName").text()
+                    favName = $(this).next().children("#grabName").text()
                     console.log(favName)
                     console.log(favNum)
-                    squanchysFavoriteSquanch.push(favNum)
+                    $('#rickCheck').text(favName)
+                    
+                    
+
+                    if(squanchysFavoriteSquanch.includes(favNum)) {
+                        console.log("Character already in favorites. Remove?")
+                        $("#centralModalSuccess").modal("show")
+                        $('#warning').off()
+                    }else {
+                        squanchysFavoriteSquanch.push(favNum)
                     $('header').append(`<div class="alert alert-primary fade show" role="alert">Added ${favName} to your favorites!</div>`)
                     setTimeout(function(){
                         $(".alert").alert('close')
                       }, 2000);
+                }
+
+                    $("#warning").on('click', function(){
+                        console.log("remove button clicked")
+                        function searchNumbers(arr) {
+                            for( var i = 0; i < arr.length; i++){ 
+                                if ( arr[i] === favNum) {
+                                  arr.splice(i, 1); 
+                                  i--;
+                                }
+                             }
+                        }
+                        searchNumbers(squanchysFavoriteSquanch)
+                        console.log(`removed ${favName}${favNum}`)
+                     });
+
+
+                    
                    
     
                     
