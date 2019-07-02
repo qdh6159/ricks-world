@@ -23,7 +23,7 @@ body {
 #enterWeb {
     width: 90%;
     height: 500px;
-    background-color: blue;
+    background-color: white;
     display: inline-block;
 }
 .card {
@@ -235,7 +235,7 @@ p {
 .navItem5 {
     border: 1px solid blueviolet;
     display: inline-block;
-    width: 400px;
+    width: 150px;
     height: 50px;
     margin-left: 40px;
     margin-top: 5px;
