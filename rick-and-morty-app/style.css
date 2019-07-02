@@ -228,7 +228,7 @@ p {
 
 .navItem1, .navItem2, .navItem3, .navItem4 {
     /* padding: 5px; */
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
     display: inline-block;
     width: 90px;
     height: 50px;
@@ -239,7 +239,7 @@ p {
     /* position: relative; */
 }
 .navItem5 {
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
     display: inline-block;
     width: 150px;
     height: 50px;
