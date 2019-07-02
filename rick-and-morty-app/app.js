@@ -59,6 +59,8 @@ function setupFavorites() {
     returnFavorites(`https://rickandmortyapi.com/api/character/${squanchysFavoriteSquanch}`)
         .then(favData =>{
             console.log(favData)
+            $('body').off()
+            $('.divImage').off()
             // Pull data from API
             squanchysArray = favData
             // rickapedia = data.info.next
@@ -101,12 +103,13 @@ function setupFavorites() {
                 let favNum = $(this).next().children("#favCharacterId").text()
                 console.log(favNum)
                 squanchysFavoriteSquanch.push(favNum)
+                
+                
 
                 
     
             })
     
-            
             $('.detailDiv').hide()
             
 
@@ -117,69 +120,135 @@ function setupFavorites() {
 }
         
 
-function setup(url) {
+async function setup(url) {
     portalGun(url)
         .then(data =>{
             console.log(data)
             console.log(data.info.next)
+            $('body').off()
+            $('.divImage').off()
             // Pull data from API
             ricksArray = data.results
             rickapedia = data.info.next
             loopCharacters(ricksArray)
 
-            $(".divImage").on({
-                mouseenter: function () {
-                    $(".detailDiv").addClass('changeDetailDiv');
-                    $(this).next().fadeIn()
-                    // $('.detailDiv').fadeIn()
+            // $(".divImage").on({
+            //     mouseenter: function () {
+            //         $(".detailDiv").addClass('changeDetailDiv');
+            //         $(this).next().fadeIn()
+            //         // $('.detailDiv').fadeIn()
                     
-                },
-                mouseleave: function () {
-                    $(".detailDiv").removeClass('changeDetailDiv')
-                    $(this).next().fadeOut()
-                    // $('.detailDiv').fadeOut()
+            //     },
+            //     mouseleave: function () {
+            //         $(".detailDiv").removeClass('changeDetailDiv')
+            //         $(this).next().fadeOut()
+            //         // $('.detailDiv').fadeOut()
                     
-                }
-            });
+            //     }
+            // });
     
-            $(".listDiv").on({
-                mouseenter: function () {
-                    $(this).find("i").addClass('changeOfHeart');
+            // $(".listDiv").on({
+            //     mouseenter: function () {
+            //         $(this).find("i").addClass('changeOfHeart');
                     
-                },
-                mouseleave: function () {
-                    $(this).find("i").removeClass('changeOfHeart')
+            //     },
+            //     mouseleave: function () {
+            //         $(this).find("i").removeClass('changeOfHeart')
                 
                     
-                }
-            });
+            //     }
+            // });
     
             
-            $(".listDiv").closest("i").on("click", function(){
-                console.log("heart clicked ")
-                $(event.target).toggleClass("fas")
-            })
+            // $(".listDiv").closest("i").on("click", function(){
+            //     console.log("heart clicked ")
+            //     $(event.target).toggleClass("fas")
+            // })
     
-            $(".divImage").on("click", function(){
-                console.log("image clicked")
-                let favNum = $(this).next().children("#favCharacterId").text()
-                console.log(favNum)
-                squanchysFavoriteSquanch.push(favNum)
+            // $(".divImage").on("click", function(){
+            //     console.log("image clicked")
+            //     let favNum = $(this).next().children("#favCharacterId").text()
+                
+            //     let favName = $(this).next().children("#favCharacterId").text()
+            //     console.log(favName)
+            //     console.log(favNum)
+            //     squanchysFavoriteSquanch.push(favNum)
+            //     $('header').append('<div class="alert alert-primary fade show" role="alert">This is a primary alert—check it out!</div>')
+            //     setTimeout(function(){
+            //         $(".alert").alert('close')
+            //       }, 2000);
+               
 
                 
-                // let favCharacterNum = $(this).text()
-                // console.log(favCharacterNum)
-                // let favCharacter = $(event.target).attr("alt")
-                // alert("added this character to your favorites")
-                // squanchysFavoriteSquanch.push(favCharacter)
+            //     // let favCharacterNum = $(this).text()
+            //     // console.log(favCharacterNum)
+            //     // let favCharacter = $(event.target).attr("alt")
+            //     // alert("added this character to your favorites")
+            //     // squanchysFavoriteSquanch.push(favCharacter)
     
-            })
+            // })
     
             
             $('.detailDiv').hide()
             if(firstVisit == 1 || firstVisit == 2 || firstVisit == 3 || firstVisit == 4) {
                 firstVisit ++
                 setup(rickapedia)
+            }else{
+                $(".divImage").on({
+                    mouseenter: function () {
+                        $(".detailDiv").addClass('changeDetailDiv');
+                        $(this).next().fadeIn()
+                        // $('.detailDiv').fadeIn()
+                        
+                    },
+                    mouseleave: function () {
+                        $(".detailDiv").removeClass('changeDetailDiv')
+                        $(this).next().fadeOut()
+                        // $('.detailDiv').fadeOut()
+                        
+                    }
+                });
+        
+                $(".listDiv").on({
+                    mouseenter: function () {
+                        $(this).find("i").addClass('changeOfHeart');
+                        
+                    },
+                    mouseleave: function () {
+                        $(this).find("i").removeClass('changeOfHeart')
+                    
+                        
+                    }
+                });
+        
+                
+                $(".listDiv").closest("i").on("click", function(){
+                    console.log("heart clicked ")
+                    $(event.target).toggleClass("fas")
+                })
+        
+                $("body").on("click", ".divImage", function(){
+                    console.log("image clicked")
+                    let favNum = $(this).next().children("#favCharacterId").text()
+                    
+                    let favName = $(this).next().children("#grabName").text()
+                    console.log(favName)
+                    console.log(favNum)
+                    squanchysFavoriteSquanch.push(favNum)
+                    $('header').append(`<div class="alert alert-primary fade show" role="alert">Added ${favName} to your favorites!</div>`)
+                    setTimeout(function(){
+                        $(".alert").alert('close')
+                      }, 2000);
+                   
+    
+                    
+                    // let favCharacterNum = $(this).text()
+                    // console.log(favCharacterNum)
+                    // let favCharacter = $(event.target).attr("alt")
+                    // alert("added this character to your favorites")
+                    // squanchysFavoriteSquanch.push(favCharacter)
+        
+                })
             }
             
             
@@ -192,6 +261,9 @@ function setup(url) {
 
 // setupFavorites()
 setup(rickapedia)
+// .then(function() {
+    
+// })
 
 
 
@@ -299,7 +371,7 @@ function loopCharacters(characterArray) {
 
         // variables for each character detail window below
         
-        let spanName = `<span>Name: ${characterName}</span>`
+        let spanName = `<span id="grabName">${characterName}</span>`
         let spanId = `<span>Character id: ${characterId}</span>`
         let spanStatus = `<span>Status: ${characterStatus}</span>`
         let spanSpecies = `<span>Species: ${characterSpecies}</span>`
